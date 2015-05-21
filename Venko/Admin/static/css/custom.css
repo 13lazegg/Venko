@@ -1,0 +1,11 @@
+.modal-dialog {
+  z-index: 1050;
+  margin-top: 100px;
+  width: 900px;
+}
+.modal-backdrop {
+  background-color: #3e3e3e;
+}
+.modal-backdrop.in {
+  opacity: .9;
+}

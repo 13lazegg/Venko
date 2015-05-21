@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Venko | Entrenamiento Personalizado Digital</title>
+	
+	<link rel="icon" sizes="192x192" href="../static/img/touch-icon.png" /> 
+	<link rel="apple-touch-icon" href="../static/img/touch-icon-iphone.png" /> 
+	<link rel="apple-touch-icon" sizes="76x76" href="../static/img/touch-icon-ipad.png" /> 
+	<link rel="apple-touch-icon" sizes="120x120" href="../static/img/touch-icon-iphone-retina.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="../static/img/touch-icon-ipad-retina.png" />
+	
+	<link rel="shortcut icon" type="image/x-icon" href="../static/img/favicon.ico" />
+
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.min.css">
+</head>
+<body>
+	<div id="loading">
+		<div class="loader loader-light loader-large"></div>
+	</div>
+	<header class="top-bar">
+		
+		<ul class="profile"> 
+			<li>
+				<a href="#" class="btn-circle no-circle">
+					<i class="pe-7f-back"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="return false;" class="btn-circle btn-sm">
+					<i class="pe-7f-mail"></i>
+					<span class="badge badge--blue">8</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="return false;" class="btn-circle btn-sm">
+					<i class="pe-7g-sets"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="return false;" class="btn-circle btn-sm active">
+					<i class="pe-7g-user"></i>
+				</a>
+			</li>
+			<li class="mobile-nav">
+				<a href="#" onclick="return false;" class="btn-circle btn-sm">
+					<i class="pe-7f-menu"></i>
+				</a>
+			</li>
+		</ul>
+
+		<div class="main-search">
+			<input type="text" placeholder="Buscar ..." id="msearch">
+			<label for="msearch">
+				<i class="pe-7s-search"></i>
+			</label>
+			<button>
+				<i class="pe-7g-arrow-circled pe-rotate-90"></i>
+			</button>
+		</div>
+		
+		<div class="main-brand">
+			<div class="main-brand__container">
+				<div class="main-logo"><img src="../static/img/logo.png"></div>
+				<input type="checkbox" id="s-logo" class="sw" />
+				<label class="swtc swtc--dark swtc--header" for="s-logo"></label> 
+			</div>
+		</div>
+		
+	</header> <!-- /top-bar -->
+
+
+	<div class="wrapper">
+
+		<aside class="sidebar">
+			
+			<div class="user-info">
+					<figure class="rounded-image profile__img">
+						<img class="media-object" src="../static/img/profile.jpg" alt="user">
+					</figure>
+					<h2 class="user-info__name">Osvaldo Olea</h2>
+					<h3 class="user-info__role">Admin Manager</h3>
+					<ul class="user-info__numbers">
+						<li>
+							<i class="pe-7f-user"></i>
+							<p>26k+</p>
+							<p>+14</p>
+						</li>
+						<li>
+							<i class="pe-7f-mail"></i>
+							<p>1095+</p>
+							<p>+56</p>
+						</li>
+						<li>
+							<i class="pe-7g-watch"></i>
+							<p>428</p>
+							<p>+38</p>
+						</li>
+					</ul>
+				</div> <!-- /user-info -->
+
+				<ul class="main-nav">
+					<li class="main-nav--active">
+						<a class="main-nav__link" href="#">
+							<span class="main-nav__icon"><i class="pe-7f-home"></i></span>
+							Pizarra
+						</a>
+					</li>
+					<li>
+						<a class="main-nav__link" href="#">
+							<span class="main-nav__icon"><i class="pe-7f-graph3"></i></span>
+							Ejercicios
+						</a>
+					</li>
+					<li>
+						<a class="main-nav__link" href="/alumnos">
+							<span class="main-nav__icon"><i class="pe-7f-users"></i></span>
+							Alumnos <span class="badge badge--line badge--blue">2</span>
+						</a>
+					</li>
+				</ul> <!-- /main-nav -->
+			
+		</aside> <!-- /sidebar -->
+		
+		<section class="content">
+			<header class="main-header">
+				<div class="main-header__nav">
+					<h1 class="main-header__title">
+						<i class="pe-7f-home"></i>
+						<span>Pizarra</span>
+					</h1>
+					<ul class="main-header__breadcrumb">
+						<li><a href="#" onclick="return false;">Home</a></li>
+						<li class="active"><a href="#" onclick="return false;">Pizarra</a></li>
+					</ul>
+				</div>
+				
+			</header> <!-- /main-header -->
+
+				<div class="row">
+					
+					<div class="col-md-6">
+						<article class="widget">
+							<header class="widget__header">
+								<div class="widget__title">
+									<i class="pe-7f-chat"></i><h3>Mensajes</h3>
+								</div>
+								<div class="widget__config">
+									<a href="#"><i class="pe-7f-refresh"></i></a>
+									<a href="#" style="line-height: 68px;"><i class="pe-7g-arrow2-down"></i></a>
+								</div>
+							</header>
+							
+							<div class="widget__content">
+								<div class="tabs">
+									<input type="radio" id="tab1" name="msgs_tabs" checked>
+									<label for="tab1" class="tabs__tab">Recientes</label>
+									<input type="radio" id="tab2" name="msgs_tabs">
+									<label for="tab2" class="tabs__tab">Viejos</label>
+									<input type="radio" id="tab3" name="msgs_tabs">
+									<label for="tab3" class="tabs__tab">Favoritos</label>
+									<div class="clearfix"></div>
+									
+									<div class="tabs__content">
+										
+										<div class="tabs__content--1">
+											
+											<div class="media message">
+												<figure class="pull-left rounded-image message__img">
+													<img class="media-object" src="../static/img/user1.jpg" alt="user">
+												</figure>
+												<div class="media-body">
+													<h4 class="media-heading message__heading">Victoria Campel  <span>desde twitter  /  hace 6 hs</span></h4>
+													<p class="message__msg">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+													<input type="checkbox" class="msg-o" id="msg-o1" checked>
+													<label class="message__controls--opener" for="msg-o1"><i class="pe-7s-note"></i></label>
+													<div class="message__controls--cont">
+														<ul class="message__controls">
+															<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Responder</span></a></li>
+															<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorito</span></a></li>
+															<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Borrar</span></a></li>
+															<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+														</ul>
+													</div> 
+												</div>
+											</div> <!-- /message -->
+
+											<div class="media message fav">
+												<figure class="pull-left rounded-image message__img">
+													<img class="media-object" src="../static/img/user2.jpg" alt="user">
+												</figure>
+												<div class="media-body">
+													<h4 class="media-heading message__heading">Joseph Lewis <span>desde twitter  /  hace 1 dia</span></h4>
+													<p class="message__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+													<input type="checkbox" class="msg-o" id="msg-o2">
+													<label class="message__controls--opener" for="msg-o2"><i class="pe-7s-note"></i></label>
+													<div class="message__controls--cont">
+														<ul class="message__controls">
+															<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Responder</span></a></li>
+															<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorito</span></a></li>
+															<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Borrar</span></a></li>
+															<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div> <!-- /message -->
+
+											<div class="media message">
+												<figure class="pull-left rounded-image message__img">
+													<img class="media-object" src="../static/img/user3.jpg" alt="user">
+												</figure>
+												<div class="media-body">
+													<h4 class="media-heading message__heading">Robert Smith  <span>desde twitter  /  hace 2 dias</span></h4>
+													<p class="message__msg">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+													<hr>
+													<div class="message__reply">
+														<h4 class="media-heading message__heading">
+															<i class="pe-7f-back pe-rotate-180"></i> Osvaldo  <span>/  hace 2 dias</span></h4>
+														<p class="message__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+													</div>
+													<input type="checkbox" class="msg-o" id="msg-o3">
+													<label class="message__controls--opener" for="msg-o3"><i class="pe-7s-note"></i></label>
+													<div class="message__controls--cont">
+														<ul class="message__controls">
+															<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Responder</span></a></li>
+															<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorito</span></a></li>
+															<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Borrar</span></a></li>
+															<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div> <!-- /message -->
+											<div class="message__write">
+												<form action="">
+													<input type="file" id="add_attachment">
+													<label for="add_attachment"><i class="pe-7f-paperclip  pe-rotate-90"></i></label><input type="text" placeholder="Escribir un Mensaje ..."><input type="submit" id="send_msg"><label for="send_msg"><i class="pe-7g-arrow2-up"></i></label></form>
+											</div>
+										</div> <!-- /tabscontent1 -->
+
+
+										
+										<div class="tabs__content--2">
+											
+											<div class="media message">
+												<figure class="pull-left rounded-image message__img">
+													<img class="media-object" src="../static/img/user1.jpg" alt="user">
+												</figure>
+												<div class="media-body">
+													<h4 class="media-heading message__heading">Victoria Campel  <span>desde twitter  /  hace 6 hs</span></h4>
+													<p class="message__msg">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+													<input type="checkbox" class="msg-o" id="msg-o4" checked>
+													<label class="message__controls--opener" for="msg-o4"><i class="pe-7s-note"></i></label>
+													<div class="message__controls--cont">
+														<ul class="message__controls">
+															<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Responder</span></a></li>
+															<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorito</span></a></li>
+															<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Borrar</span></a></li>
+															<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+														</ul>
+													</div> 
+												</div>
+											</div> <!-- /message -->
+
+											<div class="media message fav">
+												<figure class="pull-left rounded-image message__img">
+													<img class="media-object" src="../static/img/user2.jpg" alt="user">
+												</figure>
+												<div class="media-body">
+													<h4 class="media-heading message__heading">Joseph Lewis <span>desde twitter  /  hace 1 dia</span></h4>
+													<p class="message__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+													<input type="checkbox" class="msg-o" id="msg-o5">
+													<label class="message__controls--opener" for="msg-o5"><i class="pe-7s-note"></i></label>
+													<div class="message__controls--cont">
+														<ul class="message__controls">
+															<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Responder</span></a></li>
+															<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorito</span></a></li>
+															<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Borrar</span></a></li>
+															<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div> <!-- /message -->
+
+											<div class="message__write">
+												<form action="">
+													<input type="file" id="add_attachment">
+													<label for="add_attachment"><i class="pe-7f-paperclip  pe-rotate-90"></i></label><input type="text" placeholder="Escribir un Mensaje ..."><input type="submit" id="send_msg"><label for="send_msg"><i class="pe-7f-up-arrow"></i></label></form>
+											</div>
+										</div> <!-- /tabscontent2 -->
+
+
+										<div class="tabs__content--3">
+
+											<div class="media message fav">
+												<figure class="pull-left rounded-image message__img">
+													<img class="media-object" src="../static/img/user2.jpg" alt="user">
+												</figure>
+												<div class="media-body">
+													<h4 class="media-heading message__heading">Joseph Lewis <span>desde twitter  /  hace 1 dia</span></h4>
+													<p class="message__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+													<input type="checkbox" class="msg-o" id="msg-o6">
+													<label class="message__controls--opener" for="msg-o6"><i class="pe-7s-note"></i></label>
+													<div class="message__controls--cont">
+														<ul class="message__controls">
+															<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Responder</span></a></li>
+															<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorito</span></a></li>
+															<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Borrar</span></a></li>
+															<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div> <!-- /message -->
+
+											<div class="media message">
+												<figure class="pull-left rounded-image message__img">
+													<img class="media-object" src="../static/img/user3.jpg" alt="user">
+												</figure>
+												<div class="media-body">
+													<h4 class="media-heading message__heading">Robert Smith  <span>desde twitter  /  hace 2 dias</span></h4>
+													<p class="message__msg">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+													<hr>
+													<div class="message__reply">
+														<h4 class="media-heading message__heading">
+															<i class="pe-7f-back pe-rotate-180"></i> Osvaldo  <span>/  hace 2 dias</span></h4>
+														<p class="message__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+													</div>
+													<input type="checkbox" class="msg-o" id="msg-o7">
+													<label class="message__controls--opener" for="msg-o7"><i class="pe-7s-note"></i></label>
+													<div class="message__controls--cont">
+														<ul class="message__controls">
+															<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Responder</span></a></li>
+															<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorito</span></a></li>
+															<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Borrar</span></a></li>
+															<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div> <!-- /message -->
+											<div class="message__write">
+												<form action="">
+													<input type="file" id="add_attachment">
+													<label for="add_attachment"><i class="pe-7f-paperclip  pe-rotate-90"></i></label><input type="text" placeholder="Escribir un Mensaje ..."><input type="submit" id="send_msg"><label for="send_msg"><i class="pe-7f-up-arrow"></i></label></form>
+											</div>
+										</div> <!-- /tabscontent3 -->
+									</div> 
+								
+								</div> <!-- /tabs -->
+								
+
+								
+							</div> <!-- /widget__content -->
+
+						</article><!-- /widget -->
+					</div>
+
+					<div class="col-md-6">
+						<article class="widget">
+							<header class="widget__header">
+								<div class="widget__title">
+									<i class="pe-7f-user"></i><h3>Alumnos activos</h3>
+								</div>
+								<div class="widget__config">
+									<a href="#"><i class="pe-7f-refresh"></i></a>
+									<a href="#"><i class="pe-7s-close"></i></a>
+								</div>
+							</header>
+
+							<div class="widget__content">
+								<div class="members__controls">
+									<div class="members__controls--total">
+										Alumnos totales <span>184,036</span>
+									</div>
+									<div class="members__controls--order custom-dropdown">
+										<select class="dropdown-select">
+											<option value="1">Apellido<i style="
+										content:url(../static/img/arrow.svg); 
+										width: 15px; height: 15px; 
+										display: inline-block;
+										vertical-align: middle;
+										margin-left: 6px;
+										margin-top: -3px;
+									"></i></option>
+											<option value="2">Nombre</option>
+											<option value="3">Nivel</option>
+											<option value="4">Rutina</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="clearfix"></div>
+								
+								<div class="members__container">
+									
+									<div class="media message checked">
+										<figure class="pull-left rounded-image message__img">
+											<img class="media-object" src="../static/img/user4.jpg" alt="user">
+										</figure>
+										<div class="media-body">
+											<h4 class="media-heading message__heading">Paul Robert Smith</h4>
+											<p class="message__location">
+												<i class="pe-7f-map-marker"></i>  Chile 981 <br><br>
+												<i class="pe-7f-phone"></i>  4221681
+											</p>
+
+											<a class="c-btn--check"></a>
+											<input type="checkbox" class="btn-more-check" id="more1">
+											<label class="c-btn--more" for="more1"></label>
+
+											<div class="message__details">
+												<table>
+													<tr>
+														<td>Email:</td>
+														<td>info@contact.com</td>
+													</tr>
+													<tr>
+														<td>Twitter:</td>
+														<td>@Paulpro</td>
+													</tr>
+													<tr>
+														<td>Compañia:</td>
+														<td>Blazesoft</td>
+													</tr>
+													<tr>
+														<td>Plan:</td>
+														<td>Premium</td>
+													</tr>
+													<tr>
+														<td>Mensajes:</td>
+														<td><span class="badge badge--line badge--blue">16</span></td>
+													</tr>
+												</table>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="media message checked">
+										<figure class="pull-left rounded-image message__img">
+											<img class="media-object" src="../static/img/user1.jpg" alt="user">
+										</figure>
+										<div class="media-body">
+											<h4 class="media-heading message__heading">Victoria Campel</h4>
+											<p class="message__location">
+												<i class="pe-7f-map-marker"></i>  Chile 981 <br><br>
+												<i class="pe-7f-phone"></i>  4221681
+											</p>
+
+											<a class="c-btn--check"></a>
+											<input type="checkbox" class="btn-more-check" id="more2" checked>
+											<label class="c-btn--more" for="more2"></label>
+
+											<div class="message__details">
+												<table>
+													<tr>
+														<td>Email:</td>
+														<td>info@contact.com</td>
+													</tr>
+													<tr>
+														<td>Twitter:</td>
+														<td>@Paulpro</td>
+													</tr>
+													<tr>
+														<td>Compañia:</td>
+														<td>Blazesoft</td>
+													</tr>
+													<tr>
+														<td>Plan:</td>
+														<td>Premium</td>
+													</tr>
+													<tr>
+														<td>Mensajes:</td>
+														<td><span class="badge badge--line badge--blue">16</span></td>
+													</tr>
+												</table>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="media message">
+										<figure class="pull-left rounded-image message__img">
+											<img class="media-object" src="../static/img/user2.jpg" alt="user">
+										</figure>
+										<div class="media-body">
+											<h4 class="media-heading message__heading">Joseph Lewis</h4>
+											<p class="message__location">
+												<i class="pe-7f-map-marker"></i>  Chile 981 <br><br>
+												<i class="pe-7f-phone"></i>  4221681
+											</p>
+
+											<a class="c-btn--check"></a>
+											<input type="checkbox" class="btn-more-check" id="more3">
+											<label class="c-btn--more" for="more3"></label>
+
+											<div class="message__details">
+												<table>
+													<tr>
+														<td>Email:</td>
+														<td>info@contact.com</td>
+													</tr>
+													<tr>
+														<td>Twitter:</td>
+														<td>@Paulpro</td>
+													</tr>
+													<tr>
+														<td>Compañia:</td>
+														<td>Blazesoft</td>
+													</tr>
+													<tr>
+														<td>Plan:</td>
+														<td>Premium</td>
+													</tr>
+													<tr>
+														<td>Mensajes:</td>
+														<td><span class="badge badge--line badge--blue">16</span></td>
+													</tr>
+												</table>
+											</div>
+
+										</div>
+									</div>
+
+								</div> <!-- /members__container -->
+								
+								<div class="clearfix"></div>
+
+								<div class="members__footer"><button class="members__load-more"><span>+</span> Agregar Alumno...</button><button class="members__search">
+										<i class="pe-7s-graph2"></i> Estadisticas
+									</button>
+								</div>
+
+							</div>
+						</article><!-- /widget -->
+					</div>
+
+
+				</div> <!-- /row -->
+				<div class="row">
+					<div class="col-md-4">
+						<article class="widget">
+							<header class="widget__header one-btn">
+								<div class="widget__title">
+									<i class="pe-7f-speaker"></i><h3>Alertas</h3>
+								</div>
+								<div class="widget__config">
+									<a href="#"><i class="pe-7f-refresh"></i></a>
+								</div>
+							</header>
+							
+							<div class="widget__content">
+								
+								<div class="alert alert-fixed alert-success alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="pe-7s-close"></i></span><span class="sr-only">Cerrar</span></button>
+								  <div class="alert__icon pull-left">
+								  	<i class="pe-7s-check"></i>
+								  </div>
+								  <p class="alert__text"> Exito!...</p>
+								</div>
+								
+								<div class="alert alert-fixed alert-warning alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="pe-7s-close"></i></span><span class="sr-only">Cerrar</span></button>
+								  <div class="alert__icon pull-left">
+								  	<i class="pe-7s-attention"></i>
+								  </div>
+								  <p class="alert__text"> Advertencia!...</p>
+								</div>
+								
+								<div class="alert alert-fixed alert-info alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="pe-7s-close"></i></span><span class="sr-only">Cerrar</span></button>
+								  <div class="alert__icon pull-left">
+								  	<i class="pe-7s-info"></i>
+								  </div>
+								  <p class="alert__text"> Info!...</p>
+								</div>
+								
+								<div class="alert alert-fixed alert-danger alert-dismissible" role="alert">
+								  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="pe-7s-close"></i></span><span class="sr-only">Cerrar</span></button>
+								  <div class="alert__icon pull-left">
+								  	<i class="pe-7s-close-circle"></i>
+								  </div>
+								  <p class="alert__text"> Error!...</p>
+								</div>
+								
+							</div> <!-- /widget__content -->
+
+						</article><!-- /widget -->
+					</div>
+					<div class="col-md-8">
+						<article class="widget">
+							<header class="widget__header">
+								<div class="widget__title">
+									<i class="pe-7f-graph"></i><h3>Actividad diaria</h3>
+								</div>
+								<div class="widget__config">
+									<a href="#"><i class="pe-7f-refresh"></i></a>
+									<a href="#"><i class="pe-7s-close"></i></a>
+								</div>
+							</header>
+
+							<div class="widget__content filled">
+								<p class="graph-number"><span>3,424</span> Balance Total</p>
+								<div class="pie-container">
+									<div class="pie-number">
+										<h3>42</h3>
+										<p>mi balance</p>	
+									</div>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 179">
+										<path fill="#ff3a2f" d="M88,0C48.6,0.9,15.4,27,4,62.9L7.9,64C18.8,29.8,50.4,4.9,88,4V0z"/>
+										<path fill="#52d669" d="M113.4,167.6C106,169.8,98,171,89.9,171C44.7,171,8,134.4,8,89.4c0-8,1.2-15.8,3.4-23.1L3.6,64
+											C1.3,72,0,80.5,0,89.4C0,138.9,40.2,179,89.9,179c9.1,0,17.8-1.4,26.1-3.9L113.4,167.6z"/>
+										<path fill="#1c7dfa" d="M90,0v16c40.8,0,74,33.1,74,73.8c0,32.5-21.2,60.2-50.5,70l5.1,15.2c35.7-11.9,61.4-45.6,61.4-85.2
+											C180,40.2,139.7,0,90,0z"/>
+									</svg>
+								</div>
+
+							</div>
+
+							<div class="widget__content filled">
+								<div class="row">
+									<div class="col-md-4 col-sm-4 col-xs-4 mini-stats">
+										<div class="pie-small blue"></div>
+										<p>
+											<span>43%</span><br>
+											Alumnos diarios
+										</p>
+									</div>
+									<div class="col-md-4 col-sm-4 col-xs-4 mini-stats">
+										<div class="pie-small green"></div>
+										<p>
+											<span>36%</span><br>
+											Alumnos activos
+										</p>
+									</div>
+									<div class="col-md-4 col-sm-4 col-xs-4 mini-stats">
+										<div class="pie-small red"></div>
+										<p>
+											<span>21%</span><br>
+											Alumnos ausentes
+										</p>
+									</div>
+								</div>
+							</div>
+
+						</article><!-- /widget -->
+					</div>
+
+
+				</div> <!-- /row -->
+
+			<footer class="footer-brand">
+				<p>Powered by</p>
+				<img src="../static/img/logo_trim.png">
+			</footer>
+
+
+		</section> <!-- /content -->
+
+	</div>
+
+
+	 
+	<script type="text/javascript" src="../static/js/main.js"></script>
+	<script type="text/javascript" src="../static/js/amcharts/amcharts.js"></script>
+	<script type="text/javascript" src="../static/js/amcharts/serial.js"></script>
+	<script type="text/javascript" src="../static/js/amcharts/pie.js"></script>
+	<script type="text/javascript" src="../static/js/chart.js"></script>
+</body>
+</html>
