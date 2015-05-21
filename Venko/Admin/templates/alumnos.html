@@ -162,7 +162,7 @@
 								</div>
 								<div class="widget__config">
 									<a href="#"><i class="pe-7f-refresh"></i></a>
-									<a href="{% url "add" %}" class="cargaralumnos"><i class="pe-7s-plus"></i></a>
+									<a href="{% url "add" %}" class="cargaralumnos" data-toggle="tooltip" data-placement="left" title="Nuevo Alumno"><i class="pe-7s-plus"></i></a>
 								</div>
 							</header>
 							
@@ -174,7 +174,6 @@
 							  			<th width="270">Datos </th>
 							  			<th width="120">Fecha Ingreso</th>
 							  			<th>Informacion</th>
-							  			<th>Pago de cuota</th>
 							  			<th>Borrar</th>
 							  		</tr>
 							  	</thead>
@@ -187,10 +186,14 @@
 							  			<td>
 							  				<div class="media">
 													<figure class="pull-left post__img">
-														<img class="media-object" src="../static/img/post1.jpg" alt="user">
+														{%if Alumno.pago %}
+														<a href="{% url "pagoDetalle" Alumno.pk %}" data-toggle="tooltip" data-placement="left" title="Realizar Pago"><img class="media-object" src="../static/img/post1.jpg" alt="user"></a>
+														{%else %}
+														<a href="{% url "pagoDetalle" Alumno.pk %}" data-toggle="tooltip" data-placement="left" title="Realizar Pago"><img class="media-object" src="../static/img/postD.jpg" alt="user"></a>
+														{% endif %}
 													</figure>
 													<div class="media-body post_desc">
-														<h3><a href="{% url "alumnosDetalle" Alumno.pk %}">{{Alumno.nombre}}</a></h3>
+														<h3 data-toggle="tooltip" data-placement="left" title="Editar Alumno"><a href="{% url "alumnosDetalle" Alumno.pk %}">{{Alumno.nombre}}</a></h3>
 														<p>{{Alumno.profesion}}</p>
 													</div>
 												</div>
@@ -204,16 +207,7 @@
 							  				<p class="post__info">{{Alumno.email}}</p>
 							  			</td>
 							  			<td>
-							  				{%if Alumno.pago %}
-							  					<p class="post__info">SI</p>
-							  				{%else %}
-							  					<p class="post__info">NO</p>	
-							  				{% endif %}
-							  				<a href="{% url "pagoDetalle" Alumno.pk %}" class="post__del"><i class="pe-7f-close"></i></a>
-							  			</td>
-							  
-							  			<td>
-							  				<a href="{% url "borrar" Alumno.pk %}" class="post__del"><i class="pe-7f-close"></i></a>
+							  				<a href="{% url "borrar" Alumno.pk %}" class="post__del" data-toggle="tooltip" data-placement="left" title="Eliminar Alumno"><i class="pe-7f-close"></i></a>
 							  			</td>
 							  		</tr>
 
@@ -266,5 +260,12 @@
 	<script type="text/javascript" src="../static/js/amcharts/pie.js"></script>
 	<script type="text/javascript" src="../static/js/chart.js"></script>
 	<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+	<script type='text/javascript'>
+	     $(document).ready(function () {
+	     if ($("[rel=tooltip]").length) {
+	     $("[rel=tooltip]").tooltip();
+	     }
+	   });
+  	</script>
 </body>
 </html>
