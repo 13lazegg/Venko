@@ -24,6 +24,11 @@ class Alumno(models.Model):
 	medicotratante = models.CharField(max_length = 25, blank=True)
 	derivadopor = models.CharField(max_length = 25, blank=True)
 	medicacion = models.CharField(max_length = 140, blank=True)
+	Sexo = (
+        ('M', 'Masculino'),
+        ('F', 'Femenino'),
+    )
+	sexo = models.CharField(max_length = 1, null=True, blank=True,choices=Sexo)
 	peso = models.IntegerField(max_length = 10, null=True, blank=True)
 	talla = models.IntegerField(max_length = 10,null=True, blank=True)
 	servicio = models.ForeignKey(Servicio)
@@ -66,11 +71,10 @@ class Antecedente(models.Model):
 	def __unicode__(self):
 		return "%s - %i" % (self.alumno.nombre, self.id)
 
-class PagoCuenta(models.Model):
-	alumno = models.ForeignKey(Alumno)
+class Caja(models.Model):
+	alumno = models.ForeignKey(Alumno, null=True, blank=True,)
 	fecha = models.DateField(default=datetime.date.today())
 	pago= models.IntegerField()
 
 
-	def __unicode__(self):
-		return (self.alumno.nombre,)
+	

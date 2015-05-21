@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^servicios/', 'Admin.views.servicios', name='servicios'),
     url(r'^pagoDetalle/(\d+)$', 'Admin.views.pagoDetalle', name='pagoDetalle'),
     url(r'^pagos/', 'Admin.views.pagos', name='pagos'),
-    url(r'^getAlumnos/', 'Admin.views.getAlumnos', name='getAlumnos1'),
+    url(r'^getAlumnos/', 'Admin.views.getAlumnos', name='getAlumnos'),
 
     
     url(r'^admin/', include(admin.site.urls)),
