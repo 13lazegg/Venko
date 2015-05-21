@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from models import *
 from django.utils.translation import ugettext_lazy as _
+import datetime as hoy
 
 
 class AlumnoForm(ModelForm):
@@ -14,6 +15,9 @@ class AlumnoForm(ModelForm):
 		}
 		exclude = ["obrasocial","profesion","deporte","medicotratante","derivadopor","medicacion","peso","talla","descuento","pago"]
 	
+
+
+
 class AlumnoCompletoForm(ModelForm):
 	class Meta:
 		model = Alumno
@@ -25,6 +29,7 @@ class AlumnoCompletoForm(ModelForm):
 			'derivadopor': _('Derivado por'),
 			'obrasocial': _('Obra social'),
 		}
+		exclude=["pago"]
 		widgets = {'alumno': forms.HiddenInput()}
 
 class DiagnosticoForm(ModelForm):
@@ -49,6 +54,16 @@ class ServicioForm(ModelForm):
 	class Meta:
 		model=Servicio	 
 
-class PagoForm(ModelForm):
+class CajaIE(ModelForm):
 	class Meta:
-		model=PagoCuenta	 		
+		model=Caja
+		widgets = {'alumno': forms.HiddenInput()}			 
+
+class CajaForm(ModelForm):
+	class Meta:
+		model=Caja
+
+class CuentaForm(forms.Form):
+	  FechaInicio = forms.DateField()
+	  FechaFin= forms.DateField()
+	  

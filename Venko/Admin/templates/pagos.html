@@ -171,24 +171,28 @@
 								<div class="widget__content">
 								<div class="tabs">
 										<input type="radio" id="tab1" name="msgs_tabs" checked>
-										<label for="tab1" class="tabs__tab">Nuevo</label>
+										<label for="tab1" class="tabs__tab">Caja Diaria</label>
 										<input type="radio" id="tab2" name="msgs_tabs">
 										<label for="tab2" class="tabs__tab">Deudores</label>
 										<input type="radio" id="tab3" name="msgs_tabs">
 										<label for="tab3" class="tabs__tab">Historial</label>
+										<input type="radio" id="tab4" name="msgs_tabs">
+										<label for="tab4" class="tabs__tab">Balance</label>
 										<div class="clearfix"></div>
 										
 										<div class="tabs__content">
 										
 											<div class="tabs__content--1">
 												  <article class="widget widget__form">
-												<div class="modal-dialog">
+											    	<div class="widget__content">
+														<div class="modal-dialog">
 											    	<div class="widget__content">
 														<form id="form-carga" method="post" action={% url 'pagos' %} >
 															{% csrf_token %}
 															{{form.as_p}}
 															<input type="submit" class="members__load-more">
 														</form>
+													</div>
 													</div>
 												 </div>
 												   <article class="widget widget__form">
@@ -266,11 +270,19 @@
 																			</div>
 														  			</td>
 														  			<td>
-														  			<p class="post__info">{{a.alumno}}</p>
+														  				{%if a.alumno %}
+														  					<p class="post__info">{{a.alumno}}</p>
+														  				{%else%}
+														  					{%if a.pago < 0  %}
+														  						<p class="post__info">Egreso</p>
+														  					{%else%}
+														  						<p class="post__info">Ingreso</p>
+														  					{%endif%}
+														  					
+														  				{%endif%}	
 														  			<p class="post__info">{{a.alumno.telefono}}</p>
 														  			</td>
 														  			<td>
-														  			
 														  				<p class="post__info">{{a.fecha}}</p>
 														  				<p class="post__info">{{a.pago}}</p>
 														  			</td>
@@ -291,6 +303,19 @@
 												</div> <!-- /widget__content -->
 													
 										 	</div>
+										 	<div class="tabs__content--4">
+												  <article class="widget widget__form">
+												<div class="modal-dialog">
+											    	<div class="widget__content">
+														<form id="form-carga" method="post" action={% url 'pagos' %} >
+															{% csrf_token %}
+															{{form.as_p}}
+															<input type="submit" class="members__load-more">
+														</form>
+													</div>
+												 </div>
+												   <article class="widget widget__form">
+											</div>
 										</div>
 								</div>
 							</div>

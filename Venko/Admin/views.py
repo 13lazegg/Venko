@@ -31,7 +31,7 @@ def borrar(request, id):
 
 def pagoMes(a):
 	d = hoy.date.today()
-	pagos= PagoCuenta.objects.filter(alumno=a)
+	pagos= Caja.objects.filter(alumno=a)
 	for p in pagos:
 		if p.fecha.month==7 and p.fecha.year==d.year:
 			return True
@@ -114,12 +114,17 @@ def pagos(request):
 	deudores=getDeudas()
 	pagos= getHistorial()	
 	if request.method == "POST":
-		form = PagoForm(request.POST)
+		form = CajaIE(request.POST)
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect("/pagos")
+		else:
+			form2 = CajaIE(request.POST)
+			if form2is_valid():
+
+				return HttpResponseRedirect("/pagos")	
 	else:
-		form = PagoForm()
+		form = CajaIE()
 	template="pagos.html"
 	return render_to_response(template,  context_instance = RequestContext(request, locals()))
 
@@ -128,7 +133,7 @@ def pagoDetalle(request, id):
 	pagos= getHistorial()	
 	a= Alumno.objects.get(pk=id)
 	s= Servicio.objects.get(pk=a.servicio.id)
-	form = PagoForm(initial={'alumno': a,'pago':s.valor})
+	form = CajaForm(initial={'alumno': a,'pago':s.valor})
 	template="pagos.html"
 	return render_to_response(template,  context_instance = RequestContext(request, locals()))
 
@@ -138,19 +143,24 @@ def getDeudas():
 	for al in alumnos:
 		if al.pago==False:
 			ultPago=getPagos(al)
-			l.append((al,ultPago[0]))
+			if (ultPago):
+				l.append((al,ultPago[0]))
 	return l	
 
 def getHistorial():
-	pagos = PagoCuenta.objects.order_by("-fecha")
+	pagos = Caja.objects.order_by("-fecha")
 	return pagos	
 
 def getPagos(al):
-	pagos = PagoCuenta.objects.filter(alumno=al).order_by("-fecha")
+	pagos = Caja.objects.filter(alumno=al).order_by("-fecha")
 	return pagos
+
+#def balance():
 
 #-------------------- Json Methods-----------------------------
 def getAlumnos(request):
 	alumnos = Alumno.objects.all()
 	data= serializers.serialize("json",alumnos)
 	return HttpResponse(data, content_type='application/json')
+
+	
