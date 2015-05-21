@@ -120,7 +120,7 @@
 							Alumnos <span class="badge badge--line badge--blue">2</span>
 						</a>
 					</li>
-					<li class="main-nav--active">
+					<li>
 						<a class="main-nav__link" href="/servicios">
 							<span class="main-nav__icon"><i class="pe-7f-star"></i></span>
 							Servicios 
@@ -142,12 +142,13 @@
 			<header class="main-header">
 				<div class="main-header__nav">
 					<h1 class="main-header__title">
-						<i class="pe-7f-note2"></i>
-						<span>Listado de Alumnos</span>
+						<i class="pe-7f-user mas-grande"></i>
+						<span class="alumnodetalle">{{alumno.nombre}}</span>
 					</h1>
 					<ul class="main-header__breadcrumb">
 						<li><a href="#" onclick="return false;">Home</a></li>
-						<li class="active"><a href="#" onclick="return false;">Listado de Alumnos</a></li>
+						<li><a href="#" onclick="return false;">Listado de Alumnos</a></li>
+						<li class="active"><a href="#" onclick="return false;">Detalle de Alumno</a></li>
 					</ul>
 				</div>
 				
@@ -157,13 +158,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<article class="widget">
-							
-							<header class="widget__header">
-								<div class="widget__title">
-									<i class="pe-7s-menu"></i><h3>{{alumno.nombre}}</h3>
-								</div>
-								
-							</header>
 							
 							<div class="widget__content table-responsive">
 								
@@ -185,7 +179,6 @@
 									<div class="tabs__content">
 									
 										<div class="tabs__content--1">
-											<div class="modal-dialog">
 										    	<article class="widget widget__form">
 												
 												<div class="widget__content">
@@ -193,13 +186,16 @@
 														{% csrf_token %}
 														{% for field in formALumno %}
    															{{ field.errors }}
-            												{{ field.label_tag }} {{ field }}
+	            												<div class="col-lg-6 col-md-12 col-sm-12 pull-left">
+	            													<div class="col-lg-3 margen-top">{{ field.label_tag }}</div>
+																	<div class="col-lg-7 margen-top flotaizq">{{ field }}</div>
+	            												</div>
 														{%endfor%}
-														<input type="submit" class="members__load-more">
+														<div class="col-lg-12"><input type="submit" class="members__load-more mas-chico"></div>
+														
 														
 													</form>
 												</div>
-									 	 	</div>
 										</div>	
 										<div class="tabs__content--2">
 											<div class="modal-dialog">
@@ -208,7 +204,7 @@
 												<div class="widget__content">
 													<form id="form-carga" method="post" action={% url 'alumnosDetalle' alumno.pk %}>
 														{% csrf_token %}
-														<{{formDiags.as_p}}
+														{{formDiags.as_p}}
 														<input type="submit" class="members__load-more">
 													</form>
 												</div>

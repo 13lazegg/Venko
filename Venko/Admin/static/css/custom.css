@@ -9,3 +9,72 @@
 .modal-backdrop.in {
   opacity: .9;
 }
+.post_desc h3 a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+.post_desc h3 a:hover {
+  color: #c3c3c3;
+}
+.alumnodetalle {
+  font-size: 56px;
+}
+.mas-grande {
+  font-size: 56px !important;
+}
+.margen-top {
+  margin-top: 10px;
+}
+.margen-top #id_servicio {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  height: 64px;
+  vertical-align: top;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin: 1px 0 0;
+  padding-left: 24px;
+  font-weight: 100;
+  color: #fff;
+}
+.margen-top input[type="checkbox"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 1px;
+  box-sizing: border-box;
+  position: relative;
+  box-sizing: content-box;
+  border-width: 0;
+  transition: all .3s linear;
+  height: 50px !important;
+  width: 50px !important;
+  padding-left: 0 !important;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.margen-top input[type="checkbox"]:checked:after {
+  font-family: Pe-icon-7-filled;
+  content: "\e6ed";
+  font-size: 59px;
+  color: #45c15c;
+  position: absolute;
+  top: -3.6px;
+  left: -1px;
+}
+.margen-top input[type="checkbox"]:focus {
+  outline: 0 none;
+  box-shadow: none;
+}
+.mas-chico {
+  margin-top: 60px !important;
+}
+.flotaizq {
+  float: left !important;
+}
+.margen-top label {
+  padding-top: 18px;
+  margin-top: 0 !important;
+  padding-left: 45%;
+}
