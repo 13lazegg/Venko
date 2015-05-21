@@ -43,8 +43,6 @@ def home(request):
 	return render_to_response('index.html', {'hora': now})
 
 
-
-
 def alumnosDetalle(request, id):
 	alumno=  Alumno.objects.get(pk=id)
 	if request.method == "POST":
@@ -111,8 +109,11 @@ def addServicio(request):
 #--------------------PAGOS------------------------------------
 
 def pagos(request):
+
 	deudores=getDeudas()
-	pagos= getHistorial()	
+	pagos= getHistorial()
+	form = CajaIE()
+	template="pagos.html"	
 	if request.method == "POST":
 		form = CajaIE(request.POST)
 		if form.is_valid():
@@ -121,11 +122,26 @@ def pagos(request):
 		else:
 			form2 = CajaIE(request.POST)
 			if form2is_valid():
+				return HttpResponseRedirect("/pagos")
 
-				return HttpResponseRedirect("/pagos")	
-	else:
-		form = CajaIE()
-	template="pagos.html"
+	balance= Getbalance(hoy.date.today(),hoy.date.today())
+	formC = CuentaForm()
+	CantOperaciones= balance.count()
+	#---------------------montos-------------------
+	egreso=0
+	ingreso=0
+	alumno=0
+	total=0
+	for b in balance:
+		if b.pago<0:	
+			egreso += b.pago
+		else:	
+			if b.alumno:
+				alumno+=b.pago
+			else:
+				ingreso +=b.pago
+	total+=egreso+ingreso+alumno
+	#----------------------montos-----------------------			
 	return render_to_response(template,  context_instance = RequestContext(request, locals()))
 
 def pagoDetalle(request, id):
@@ -155,7 +171,10 @@ def getPagos(al):
 	pagos = Caja.objects.filter(alumno=al).order_by("-fecha")
 	return pagos
 
-#def balance():
+def Getbalance(fechaI,fechaF):
+	balance = Caja.objects.filter(fecha=fechaI).filter(fecha=fechaF)
+	return balance
+
 
 #-------------------- Json Methods-----------------------------
 def getAlumnos(request):

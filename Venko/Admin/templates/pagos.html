@@ -305,15 +305,72 @@
 										 	</div>
 										 	<div class="tabs__content--4">
 												  <article class="widget widget__form">
-												<div class="modal-dialog">
-											    	<div class="widget__content">
-														<form id="form-carga" method="post" action={% url 'pagos' %} >
-															{% csrf_token %}
-															{{form.as_p}}
-															<input type="submit" class="members__load-more">
-														</form>
-													</div>
-												 </div>
+												<table class="table table-striped media-table">
+														 	<thead>
+														  		<tr>
+														  			<th width="270">Datos </th>
+														  			<th width="120">Fecha Ingreso</th>
+														  			<th>Informacion</th>
+														  			<th>Pago de cuota</th>
+														  			<th>Borrar</th>
+														  		</tr>
+														  	</thead>
+														  	  <form id="form-carga" method="post" action={% url 'pagos' %} >
+																	{% csrf_token %}
+																	{{formC.as_p}}
+																	<input type="submit" class="members__load-more">
+																</form>
+														  	<tbody>
+														  		<tr class="spacer"></tr>
+														  		Cantidad de operaciones: {{CantOperaciones}}
+														  		
+														  		Monto total: {{total}}  --
+														  		egreso:{{egreso}}  --
+														  		ingreso:{{ingreso}}  --
+														  	    ingreso Alumno:{{alumno}}  --
+														  	  
+														  		{% for a in balance%}
+														  		<tr>
+														  			<td>
+														  				<div class="media">
+																				<figure class="pull-left post__img">
+																					<img class="media-object" src="../static/img/post1.jpg" alt="user">
+																				</figure>
+																				<div class="media-body post_desc">
+																				</div>
+																			</div>
+														  			</td>
+														  			<td>
+														  				{%if a.alumno %}
+														  					<p class="post__info">{{a.alumno}}</p>
+														  				{%else%}
+														  					{%if a.pago < 0  %}
+														  						<p class="post__info">Egreso</p>
+														  					{%else%}
+														  						<p class="post__info">Ingreso</p>
+														  					{%endif%}
+														  					
+														  				{%endif%}	
+														  			<p class="post__info">{{a.alumno.telefono}}</p>
+														  			</td>
+														  			<td>
+														  				<p class="post__info">{{a.fecha}}</p>
+														  				<p class="post__info">{{a.pago}}</p>
+														  			</td>
+														  			<td>
+														  			</td>
+														  
+														  			<td>
+														  			
+														  			</td>
+														  		</tr>
+
+														  		<tr class="spacer"></tr>
+														  		{% endfor %}
+
+														  		
+														  	</tbody>
+														</table>
 												   <article class="widget widget__form">
 											</div>
 										</div>
